@@ -1,0 +1,30 @@
+<h1>Listing check_apps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Time Stamp</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @check_apps.each do |check_app| %>
+      <tr>
+        <td><%= check_app.first_name %></td>
+        <td><%= check_app.last_name %></td>
+        <td><%= check_app.created_at.strftime('%Y-%M-%d') %></td>
+        <td><%= link_to 'Show', check_app %></td>
+        <td><%= link_to 'Edit', edit_check_app_path(check_app) %></td>
+        <td><%= link_to 'Destroy', check_app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Check app', new_check_app_path %>
